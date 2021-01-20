@@ -5,11 +5,12 @@
 
 
 def divide(a, b):
-    if b == 0:
+    try:
+        result = a / b
+        return result
+    except ZeroDivisionError:
         print('Cannot divide by 0')
         return
-    else:
-        return a / b
 
 
 x = int(input('Введите первое число (делимое): '))

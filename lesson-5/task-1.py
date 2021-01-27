@@ -13,5 +13,5 @@ while True:
     else:
         data.append(f"{result}\n")
 
-with open("test_1.txt", "w") as file:
+with open("file_1.txt", "w") as file:
     file.writelines(data)

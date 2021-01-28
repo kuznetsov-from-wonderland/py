@@ -52,7 +52,7 @@ for c in successful_companies:
 result.append(companies_dict)
 
 average = reduce(sum_fn, list(map(rv, successful_companies)))
-result.append({"average_profit": average})
+result.append({"average_profit": average/len(successful_companies)})
 
 with open('file_7.json', 'w', encoding='utf-8') as output:
     json.dump(result, output, ensure_ascii=False, indent=2)

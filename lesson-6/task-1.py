@@ -15,22 +15,30 @@ colors = {'r': '🔴 Red', 'g': '🟢 Green', 'y': '🟡 Yellow'}
 seq = {'r': 'y', 'g': 'r', 'y': 'g'}
 time_outs = {'r': 7, 'g': 9, 'y': 2}
 
+active = False
+
 
 class TrafficLight:
-    color = initial_color
+    cycles_count = 0
+
+    def __init__(self):
+        self.__color = initial_color
 
     def log(self):
-        print(colors[self.color])
+        print(colors[self.__color])
 
     def step(self):
-        sleep(time_outs[self.color])
-        next_color = seq[self.color]
-        self.color = next_color
+        sleep(time_outs[self.__color])
+        next_color = seq[self.__color]
+        self.__color = next_color
 
     def running(self):
         while True:
+            if self.cycles_count > 10:
+                break
             self.log()
             self.step()
+            self.cycles_count += 1
 
 
 s = TrafficLight()
